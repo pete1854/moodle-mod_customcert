@@ -80,13 +80,7 @@ class mod_customcert_mod_form extends moodleform_mod {
             $mform->setType('emailothers', PARAM_TEXT);
             $firstoption = empty($firstoption) ? 'emailothers' : $firstoption;
         }
-        if (has_capability('mod/customcert:managebidsupport', $this->get_context())) {
-            $mform->addElement('selectyesno', 'bidsupport', get_string('bidsupport', 'customcert'));
-            $mform->addHelpButton('bidsupport', 'bidsupport', 'customcert');
-            $mform->setDefault('bidsupport', get_config('customcert', 'bidsupport'));
-            $mform->setType('bidsupport', PARAM_INT);
-            $firstoption = empty($firstoption) ? 'bidsupport' : $firstoption;
-        }
+        
 
         if (has_capability('mod/customcert:manageverifyany', $this->get_context())) {
             $mform->addElement('selectyesno', 'verifyany', get_string('verifycertificateanyone', 'customcert'));
@@ -114,6 +108,26 @@ class mod_customcert_mod_form extends moodleform_mod {
             $mform->setType('protection_modify', PARAM_BOOL);
             $mform->setType('protection_copy', PARAM_BOOL);
             $firstoption = empty($firstoption) ? 'protection_print' : $firstoption;
+        }
+
+        if (has_capability('mod/customcert:managebidsupport', $this->get_context())) {
+            $mform->addElement('selectyesno', 'bidsupport', get_string('bidsupport', 'customcert'));
+            $mform->addHelpButton('bidsupport', 'bidsupport', 'customcert');
+            $mform->setDefault('bidsupport', get_config('customcert', 'bidsupport'));
+            $mform->setType('bidsupport', PARAM_INT);
+            $firstoption = empty($firstoption) ? 'bidsupport' : $firstoption;
+            // Teacher must sign
+            $mform->addElement('selectyesno', 'bid_teacher_must_sign', get_string('bid_teacher_must_sign', 'customcert'));
+            $mform->addHelpButton('bid_teacher_must_sign', 'bid_teacher_must_sign', 'customcert');
+            $mform->setDefault('bid_teacher_must_sign', get_config('customcert', 'bid_teacher_must_sign'));
+            $mform->setType('bid_teacher_must_sign', PARAM_INT);
+            $firstoption = empty($firstoption) ? 'bid_teacher_must_sign' : $firstoption;
+            // Student must sign
+            $mform->addElement('selectyesno', 'bid_student_must_sign', get_string('bid_student_must_sign', 'customcert'));
+            $mform->addHelpButton('bid_student_must_sign', 'bid_student_must_sign', 'customcert');
+            $mform->setDefault('bid_student_must_sign', get_config('customcert', 'bid_student_must_sign'));
+            $mform->setType('bid_student_must_sign', PARAM_INT);
+            $firstoption = empty($firstoption) ? 'bid_student_must_sign' : $firstoption;
         }
 
         if (!empty($firstoption)) {
@@ -215,7 +229,9 @@ class mod_customcert_mod_form extends moodleform_mod {
             'protection_print' => 'mod/customcert:manageprotection',
             'protection_modify' => 'mod/customcert:manageprotection',
             'protection_copy' => 'mod/customcert:manageprotection',
-            'bidsupport' => 'mod/customcert:managebidsupport'
+            'bidsupport' => 'mod/customcert:managebidsupport',
+            'bid_teacher_must_sign' => 'mod/customcert:managebidsupport',
+            'bid_student_must_sign' => 'mod/customcert:managebidsupport'
         ];
     }
 

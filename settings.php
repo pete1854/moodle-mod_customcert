@@ -61,8 +61,6 @@ $yesnooptions = [
 
 $settings->add(new admin_setting_configselect('customcert/emailstudents',
     get_string('emailstudents', 'customcert'), get_string('emailstudents_help', 'customcert'), 0, $yesnooptions));
-$settings->add(new admin_setting_configselect('customcert/bidsupport',
-    get_string('bidsupport', 'customcert'), get_string('bidsupport_help', 'customcert'), 0, $yesnooptions));
 $settings->add(new admin_setting_configselect('customcert/emailteachers',
     get_string('emailteachers', 'customcert'), get_string('emailteachers_help', 'customcert'), 0, $yesnooptions));
 $settings->add(new admin_setting_configtext('customcert/emailothers',
@@ -84,6 +82,12 @@ $settings->add(new admin_setting_configcheckbox('customcert/protection_copy',
     get_string('preventcopy', 'customcert'),
     get_string('preventcopy_desc', 'customcert'),
     0));
+$settings->add(new admin_setting_configselect('customcert/bidsupport',
+    get_string('bidsupport', 'customcert'), get_string('bidsupport_help', 'customcert'), 0, $yesnooptions));
+$settings->add(new admin_setting_configselect('customcert/bid_teacher_must_sign',
+    get_string('bid_teacher_must_sign', 'customcert'), get_string('bid_teacher_must_sign_help', 'customcert'), 0, $yesnooptions));
+$settings->add(new admin_setting_configselect('customcert/bid_studentmust_sign',
+    get_string('bid_student_must_sign', 'customcert'), get_string('bid_student_must_sign_help', 'customcert'), 0, $yesnooptions));
 
 $ADMIN->add('customcert', $settings);
 
