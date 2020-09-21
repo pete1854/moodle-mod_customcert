@@ -71,6 +71,7 @@ $string['elements'] = 'Elements';
 $string['elements_help'] = 'This is the list of elements that will be displayed on the certificate.
 
 Please note: The elements are rendered in this order. The order can be changed by using the arrows next to each element.';
+$string['customcert:managebidsupport'] = 'Hantera inställningar för BankID';
 $string['elementwidth'] = 'Width';
 $string['elementwidth_help'] = 'Specify the width of the element - \'0\' means that there is no width constraint.';
 $string['emailnonstudentbody'] = 'Attached is the certificate \'{$a->certificatename}\' for \'{$a->userfullname}\' for the course \'{$a->coursefullname}\'.';
@@ -85,6 +86,8 @@ $string['emailstudentgreeting'] = 'Dear {$a}';
 $string['emailstudentsubject'] = '{$a->coursefullname}: {$a->certificatename}';
 $string['emailstudents'] = 'Email students';
 $string['emailstudents_help'] = 'If set this will email the students a copy of the certificate when it becomes available.';
+$string['bidsupport'] = 'Signering med BankID.';
+$string['bidsupport_help'] = 'Om aktiverad kommer det gå att signera intyget med BankID.';
 $string['emailteachers'] = 'Email teachers';
 $string['emailteachers_help'] = 'If set this will email the teachers a copy of the certificate when it becomes available.';
 $string['emailothers'] = 'Email others';

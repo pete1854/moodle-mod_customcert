@@ -80,6 +80,13 @@ class mod_customcert_mod_form extends moodleform_mod {
             $mform->setType('emailothers', PARAM_TEXT);
             $firstoption = empty($firstoption) ? 'emailothers' : $firstoption;
         }
+        if (has_capability('mod/customcert:managebidsupport', $this->get_context())) {
+            $mform->addElement('selectyesno', 'bidsupport', get_string('bidsupport', 'customcert'));
+            $mform->addHelpButton('bidsupport', 'bidsupport', 'customcert');
+            $mform->setDefault('bidsupport', get_config('customcert', 'bidsupport'));
+            $mform->setType('bidsupport', PARAM_INT);
+            $firstoption = empty($firstoption) ? 'bidsupport' : $firstoption;
+        }
 
         if (has_capability('mod/customcert:manageverifyany', $this->get_context())) {
             $mform->addElement('selectyesno', 'verifyany', get_string('verifycertificateanyone', 'customcert'));
@@ -207,7 +214,8 @@ class mod_customcert_mod_form extends moodleform_mod {
             'requiredtime' => 'mod/customcert:managerequiredtime',
             'protection_print' => 'mod/customcert:manageprotection',
             'protection_modify' => 'mod/customcert:manageprotection',
-            'protection_copy' => 'mod/customcert:manageprotection'
+            'protection_copy' => 'mod/customcert:manageprotection',
+            'bidsupport' => 'mod/customcert:managebidsupport'
         ];
     }
 

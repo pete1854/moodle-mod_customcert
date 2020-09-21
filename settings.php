@@ -61,6 +61,8 @@ $yesnooptions = [
 
 $settings->add(new admin_setting_configselect('customcert/emailstudents',
     get_string('emailstudents', 'customcert'), get_string('emailstudents_help', 'customcert'), 0, $yesnooptions));
+$settings->add(new admin_setting_configselect('customcert/bidsupport',
+    get_string('bidsupport', 'customcert'), get_string('bidsupport_help', 'customcert'), 0, $yesnooptions));
 $settings->add(new admin_setting_configselect('customcert/emailteachers',
     get_string('emailteachers', 'customcert'), get_string('emailteachers_help', 'customcert'), 0, $yesnooptions));
 $settings->add(new admin_setting_configtext('customcert/emailothers',
