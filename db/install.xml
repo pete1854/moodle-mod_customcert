@@ -43,12 +43,17 @@
     <TABLE NAME="customcert_issues" COMMENT="Stores each issue of a customcert">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
-        <FIELD NAME="ssn" TYPE="char" LENGTH="12" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="customcertid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="code" TYPE="char" LENGTH="40" NOTNULL="false" SEQUENCE="false"/>
         <FIELD NAME="emailed" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="s_ssn" TYPE="char" LENGTH="12" NOTNULL="false" SEQUENCE="false" COMMENT="Student SSN used for signing this certificate"/>
+        <FIELD NAME="t_ssn" TYPE="char" LENGTH="12" NOTNULL="false" SEQUENCE="false" COMMENT="Teacher SSN used for signing this certificate"/>
+        <FIELD NAME="uvd" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" COMMENT="userVisibleData (base64) used when signing this certificate"/>
+        <FIELD NAME="unvd" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" COMMENT="userNonVisibleData (base64) used when signing this certificate"/>
+        <FIELD NAME="cd" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" COMMENT="completionData (json) from successful sign operation"/>
+
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for customcert_issues"/>
